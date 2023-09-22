@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // URI koneksi MongoDB Anda
-const dbURI = process.env.DB_URI
+const dbURI = process.env.MONGODB_URI
 
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
