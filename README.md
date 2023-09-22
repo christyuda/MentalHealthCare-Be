@@ -50,57 +50,63 @@ Struktur Folder mental_health_care_backend
 Struktur Database
 
 1. Collection: Users (Pengguna)
+   \_id: ID unik pengguna (dihasilkan otomatis oleh MongoDB).
+   role: Peran pengguna (End user, Doctor, Admin).
+   name: Nama lengkap pengguna.
+   email: Alamat email pengguna.
+   password: Kata sandi pengguna yang telah di-hash.
+   phone: Nomor telepon pengguna (opsional).
+   age: Umur pengguna (opsional).
+   gender: Jenis kelamin pengguna (opsional).
+   medicalHistory: Riwayat medis pengguna (dalam bentuk array atau objek).
+   treatmentHistory: Riwayat perawatan sebelumnya (dalam bentuk array atau objek, jika ada).
 
-\_id: ID unik pengguna (dihasilkan otomatis oleh MongoDB).
-role: Peran pengguna (End user, Doctor, Admin).
-name: Nama lengkap pengguna.
-email: Alamat email pengguna.
-password: Kata sandi pengguna yang telah di-hash.
-phone: Nomor telepon pengguna (opsional).
-age: Umur pengguna (opsional).
-gender: Jenis kelamin pengguna (opsional).
-medicalHistory: Riwayat medis pengguna (dalam bentuk array atau objek).
-treatmentHistory: Riwayat perawatan sebelumnya (dalam bentuk array atau objek, jika ada). 2. Collection: CounselingSessions (Sesi Konseling)
+2. Collection: CounselingSessions (Sesi Konseling)
+   \_id: ID unik sesi konseling.
+   userId: ID pengguna yang terkait dengan sesi ini.
+   date: Tanggal sesi konseling.
+   duration: Durasi sesi konseling.
+   type: Jenis sesi (Terapi Individu, Terapi Keluarga, Terapi Kelompok, dll.).
+   notes: Catatan atau keterangan sesi.
 
-\_id: ID unik sesi konseling.
-userId: ID pengguna yang terkait dengan sesi ini.
-date: Tanggal sesi konseling.
-duration: Durasi sesi konseling.
-type: Jenis sesi (Terapi Individu, Terapi Keluarga, Terapi Kelompok, dll.).
-notes: Catatan atau keterangan sesi. 3. Collection: CounselingOrders (Perintah Konseling)
+3. Collection: CounselingOrders (Perintah Konseling)
+   \_id: ID unik perintah konseling.
+   userId: ID pengguna yang terkait dengan perintah ini.
+   dateCreated: Tanggal perintah konseling dibuat.
+   serviceType: Jenis layanan yang diperlukan (Konseling Psikologis, Terapi Obat, Dukungan Keluarga, dll.).
+   status: Status perintah (Dalam Proses, Selesai, Dibatalkan).
+   instructions: Catatan atau instruksi khusus.
 
-\_id: ID unik perintah konseling.
-userId: ID pengguna yang terkait dengan perintah ini.
-dateCreated: Tanggal perintah konseling dibuat.
-serviceType: Jenis layanan yang diperlukan (Konseling Psikologis, Terapi Obat, Dukungan Keluarga, dll.).
-status: Status perintah (Dalam Proses, Selesai, Dibatalkan).
-instructions: Catatan atau instruksi khusus. 4. Collection: ProgressNotes (Catatan Perkembangan)
+4. Collection: ProgressNotes (Catatan Perkembangan)
+   \_id: ID unik catatan perkembangan.
+   sessionId: ID sesi yang terkait dengan catatan ini.
+   content: Catatan perkembangan kesehatan mental.
+   date: Tanggal pencatatan.
+   author: Penulis catatan (biasanya seorang profesional kesehatan mental).
+   evaluationAndRecommendation: Evaluasi dan rekomendasi (jika ada).
 
-\_id: ID unik catatan perkembangan.
-sessionId: ID sesi yang terkait dengan catatan ini.
-content: Catatan perkembangan kesehatan mental.
-date: Tanggal pencatatan.
-author: Penulis catatan (biasanya seorang profesional kesehatan mental).
-evaluationAndRecommendation: Evaluasi dan rekomendasi (jika ada). 5. Collection: ServiceProviders (Penyedia Layanan)
+5. Collection: ServiceProviders (Penyedia Layanan)
+   \_id: ID unik penyedia layanan.
+   name: Nama penyedia layanan.
+   specialization: Spesialisasi penyedia layanan (Psikolog, Psikiater, Pekerja Sosial, dll.).
+   contactInfo: Informasi kontak penyedia layanan (alamat kantor, nomor telepon, email).
+   officeHours: Jam operasional penyedia layanan.
+   serviceCost: Biaya layanan (jika relevan).
 
-\_id: ID unik penyedia layanan.
-name: Nama penyedia layanan.
-specialization: Spesialisasi penyedia layanan (Psikolog, Psikiater, Pekerja Sosial, dll.).
-contactInfo: Informasi kontak penyedia layanan (alamat kantor, nomor telepon, email).
-officeHours: Jam operasional penyedia layanan.
-serviceCost: Biaya layanan (jika relevan). 6. Collection: Settings (Pengaturan)
+6. Collection: Settings (Pengaturan)
+   \_id: ID unik pengaturan aplikasi.
+   language: Bahasa yang dipilih oleh pengguna.
+   userPreferences: Preferensi pengguna lainnya (jika ada).
 
-\_id: ID unik pengaturan aplikasi.
-language: Bahasa yang dipilih oleh pengguna.
-userPreferences: Preferensi pengguna lainnya (jika ada). 7. Collection: Messages (Pesan dan Notifikasi)
+7. Collection: Messages (Pesan dan Notifikasi)
+   \_id: ID unik pesan atau notifikasi.
+   senderId: ID pengirim pesan.
+   receiverId: ID penerima pesan.
+   content: Isi pesan atau notifikasi.
+   timestamp: Waktu pengiriman pesan.
 
-\_id: ID unik pesan atau notifikasi.
-senderId: ID pengirim pesan.
-receiverId: ID penerima pesan.
-content: Isi pesan atau notifikasi.
-timestamp: Waktu pengiriman pesan. 8. Collection: StatisticsAndReports (Statistik dan Laporan)
-
-\_id: ID unik statistik atau laporan.
-userId: ID pengguna yang terkait dengan statistik atau laporan ini.
-type: Jenis statistik atau laporan (Statistik Penggunaan, Laporan Aktivitas, dll.).
-data: Data statistik atau laporan.
+8. Collection: StatisticsAndReports (Statistik dan Laporan)
+   \_id: ID unik statistik atau laporan.
+   userId: ID pengguna yang terkait dengan statistik atau laporan ini.
+   type: Jenis statistik atau laporan (Statistik Penggunaan, Laporan Aktivitas, dll.).
+   data: Data statistik atau laporan.
