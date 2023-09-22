@@ -52,6 +52,7 @@ const { app, port } = require('./config/express');
 
 // Import rute-rute aplikasi
 const userRoutes = require('./routes/userRoutes');
+const sessionRoutes = require('./routes/sessionRoutes');
 
 // Menghubungkan ke MongoDB menggunakan URI koneksi Anda
 mongoose.connect('mongodb+srv://chrisyuda:mental123@cluster0.wzy4rke.mongodb.net/mental_health_care', {
@@ -70,6 +71,8 @@ app.use(express.json());
 
 // Menggunakan rute-rute aplikasi
 app.use('/api/users', userRoutes);
+app.use('/api/sessions', sessionRoutes);
+
 
 // Rute beranda
 app.get('/', (req, res) => {

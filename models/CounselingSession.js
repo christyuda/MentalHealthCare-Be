@@ -1,15 +1,31 @@
 const mongoose = require('mongoose');
 
-const counselingSessionSchema = new mongoose.Schema({
-  userId: {
+// Skema (Schema) untuk model Sesi Konseling
+const sessionSchema = new mongoose.Schema({
+  therapist: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
+    ref: 'User', // Mengacu pada model pengguna (User)
+    required: true
   },
-  date: Date,
-  duration: String,
-  type: String,
-  notes: String,
+  patient: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', // Mengacu pada model pengguna (User)
+    required: true
+  },
+  date: {
+    type: Date,
+    required: true
+  },
+  durationInMinutes: {
+    type: Number,
+    required: true
+  },
+  notes: {
+    type: String
+  }
 });
 
-module.exports = mongoose.model('CounselingSession', counselingSessionSchema);
+// Membuat model Sesi Konseling
+const Session = mongoose.model('Session', sessionSchema);
+
+module.exports = Session;
