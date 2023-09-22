@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // URI koneksi MongoDB Anda
-const dbURI = 'mongodb+srv://chrisyuda:mental123@cluster0.wzy4rke.mongodb.net/mental_health_care';
+const dbURI = process.env.DB_URI
 
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
