@@ -3,7 +3,7 @@ const User = require('../models/User');
 // Mendapatkan daftar semua pengguna
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find().timeout(10000);
+    const users = await User.find()
     const responseData = {
       code: 200,        // Menambah properti 'code'
       success: true,    // Menambah properti 'success'
