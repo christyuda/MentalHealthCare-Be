@@ -3,7 +3,7 @@ const User = require('../models/User');
 // Mendapatkan daftar semua pengguna
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find().timeout(10000);
     const responseData = {
       code: 200,        // Menambah properti 'code'
       success: true,    // Menambah properti 'success'
@@ -16,6 +16,7 @@ const getAllUsers = async (req, res) => {
     res.status(500).json({ code: 500, success: false, status: 'Internal Server Error', message: 'Terjadi kesalahan saat mengambil data pengguna.' });
   }
 };
+
 
 // Mendapatkan detail pengguna berdasarkan ID
 const getUserById = async (req, res) => {
