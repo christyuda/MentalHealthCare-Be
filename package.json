@@ -7,6 +7,9 @@
   "devDependencies": {
     "mocha": "^10.2.0"
   },
+  "name": "namaproject",
+  "version": "1.0.0",
+  "description": "simple web app with expressjs",
   "scripts": {
     "test": "mocha tests/*.test.js",
     "start": "node app.js"
