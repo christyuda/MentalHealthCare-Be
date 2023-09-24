@@ -3,7 +3,7 @@ Struktur Folder mental_health_care_backend
 ├── config/
 │ ├── database.js # Konfigurasi MongoDB
 │ ├── express.js # Konfigurasi Express
-│ └── ...
+│  
 │
 ├── controllers/
 │ ├── userController.js # Pengendali pengguna
@@ -13,7 +13,7 @@ Struktur Folder mental_health_care_backend
 │ ├── serviceProviderController.js # Pengendali penyedia layanan
 │ ├── messageController.js # Pengendali pesan dan notifikasi
 │ ├── statisticsController.js # Pengendali statistik dan laporan
-│ └── ...
+│  
 │
 ├── models/
 │ ├── User.js # Model pengguna
@@ -23,7 +23,7 @@ Struktur Folder mental_health_care_backend
 │ ├── ServiceProvider.js # Model penyedia layanan
 │ ├── Message.js # Model pesan dan notifikasi
 │ ├── Statistics.js # Model statistik dan laporan
-│ └── ...
+│  
 │
 ├── routes/
 │ ├── userRoutes.js # Rute pengguna
@@ -33,12 +33,12 @@ Struktur Folder mental_health_care_backend
 │ ├── serviceProviderRoutes.js # Rute penyedia layanan
 │ ├── messageRoutes.js # Rute pesan dan notifikasi
 │ ├── statisticsRoutes.js # Rute statistik dan laporan
-│ └── ...
+│  
 │
 ├── middleware/
 │ ├── authMiddleware.js # Middleware otorisasi
 │ ├── errorMiddleware.js # Middleware penanganan kesalahan
-│ └── ...
+│  
 │
 ├── tests/ # Unit tests dan pengujian lainnya
 │
