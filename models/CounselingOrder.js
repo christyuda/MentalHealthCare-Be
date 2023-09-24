@@ -1,15 +1,34 @@
 const mongoose = require('mongoose');
 
-const counselingOrderSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
+  // Informasi tentang perintah konseling
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  // ID pengguna yang diberikan perintah
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true,
   },
-  dateCreated: Date,
-  serviceType: String,
-  status: String,
-  instructions: String,
+  // Tanggal pembuatan perintah
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  // Status perintah (misalnya, 'pending', 'completed', dll.)
+  status: {
+    type: String,
+    enum: ['pending', 'completed', 'canceled'],
+    default: 'pending',
+  },
 });
 
-module.exports = mongoose.model('CounselingOrder', counselingOrderSchema);
+const Order = mongoose.model('CounselingOrder', orderSchema);
+
+module.exports = Order;

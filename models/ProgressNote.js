@@ -1,15 +1,24 @@
 const mongoose = require('mongoose');
 
 const progressNoteSchema = new mongoose.Schema({
-  sessionId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'CounselingSession',
+  title: {
+    type: String,
     required: true,
   },
-  content: String,
-  date: Date,
-  author: String,
-  evaluationAndRecommendation: String,
+  content: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model('ProgressNote', progressNoteSchema);
+const ProgressNote = mongoose.model('ProgressNote', progressNoteSchema);
+
+module.exports = ProgressNote;

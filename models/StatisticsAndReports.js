@@ -8,7 +8,6 @@ const statisticsAndReportsSchema = new mongoose.Schema({
   },
   type: String,
   data: {
-    // Definisikan struktur data statistik atau laporan di sini
   },
 });
 

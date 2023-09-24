@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 const sessionSchema = new mongoose.Schema({
   therapist: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Mengacu pada model pengguna (User)
+    ref: 'User', 
     required: true
   },
   patient: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User', // Mengacu pada model pengguna (User)
+    ref: 'User',     
     required: true
   },
   date: {
